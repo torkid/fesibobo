@@ -652,7 +652,7 @@
             // Payment processing
             async function processPayment(phone, onError) {
                 try {
-                    const res = await fetch('/pay', {
+                    const res = await fetch('/api/pay', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ phone })
@@ -662,7 +662,7 @@
 
                     const poll = setInterval(async () => {
                         try {
-                            const sRes = await fetch(`/check-status?order_id=${data.reference}`);
+                            const sRes = await fetch(`/api/check-status?order_id=${data.reference}`);
                             const sData = await sRes.json();
                             if (sData.status === 'COMPLETED') {
                                 clearInterval(poll);
