@@ -1,27 +1,13 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "index.js",
-      "use": "@vercel/node"
+      "source": "/pay",
+      "destination": "/index.js"
     },
     {
-      "src": "public/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/pay",
-      "dest": "index.js"
-    },
-    {
-      "src": "/check-status",
-      "dest": "index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "public/$1"
+      "source": "/check-status",
+      "destination": "/index.js"
     }
   ]
 }
